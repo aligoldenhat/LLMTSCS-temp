@@ -252,6 +252,7 @@ class ChatGPTTLCS_Commonsense(object):
             except Exception as e:
                 self.errors.append({"error": str(e), "prompt": prompt})
                 dump_json(self.errors, self.error_file)
+                print (response)
                 time.sleep(3)
 
         prompt.append({"role": "assistant", "content": analysis})
