@@ -967,7 +967,7 @@ class LLM_Inference_VLLM:
         start_time = time.time()
         state_action_log = [[] for _ in range(len(state))]
 
-        self.llm_model.eval()
+        #self.llm_model.eval()
         for step_num in tqdm(range(int(total_run_cnt / self.dic_traffic_env_conf['MIN_ACTION_TIME']))):
             if done or current_time >= total_run_cnt:
                 break
