@@ -6,6 +6,7 @@ def main(input_file, output_file):
     instructions = []
 
     for data in state_action_data:
+      try:
         state = data['state']
         instruction = getPrompt(state2text(state))[-1]['content']
         output = data['prompt'][-1]['content'] if 'content' in data['prompt'][-1] else data['prompt'][-1]
@@ -15,7 +16,8 @@ def main(input_file, output_file):
             "input": "",
             "output": output
         })
-
+      except IndexError:
+        pass
     dump_json(instructions, output_file)
 
 if __name__ == "__main__":
